@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delícias da Jessie | Doceria Artesanal</title>
+    <!-- Incluindo Tailwind CSS para estilização moderna e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link do Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <style>
+        /* Configuração de Fonte Global e Cores */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        
+        :root {
+            /* Definindo a paleta de cores rosa/doce */
+            --cor-primaria: #db2777; /* Rosa Escuro (Acento Principal) */
+            --cor-secundaria: #f472b6; /* Rosa Médio */
+            --cor-fundo: #fff1f2; /* Rosa Muito Claro (Rose 50) */
+            --cor-card: #fdf2f8; /* Pink 100 */
+            --cor-texto: #1f2937; /* Cinza Escuro */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            transition: background-color 0.3s;
+        }
+
+        /* Estilo da Fonte do Título para um toque mais sofisticado */
+        .titulo-fonte {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Estilo para o link ativo na navegação */
+        .link-ativo {
+            position: relative;
+        }
+        .link-ativo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 9999px;
+        }
+        
+        /* CSS Customizado para o Efeito de Ícones no Rodapé */
+        .social-icons-list {
+            list-style: none; 
+            display: flex; 
+            justify-content: center; 
+            padding: 0;
+            margin: 20px 0 10px;
+        }
+
+        .social-icons-list li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px; 
+            margin: 0 10px;
+            background-color: transparent;
+            color: #fbcfe8;
+            border: 2px solid #fbcfe8;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Efeito Hover: Inverte as cores e adiciona sombra/glow */
+        .social-icons-list li a:hover {
+            background-color: #fbcfe8;
+            color: #831843;
+            box-shadow: 0 0 10px 2px #f472b6;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- CABEÇALHO CORRIGIDO E PADRONIZADO -->
+    <header class="bg-pink-600 shadow-2xl sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                
+                <!-- RELÓGIO -->
+                <div id="real-time-clock" class="text-white text-lg font-mono px-3 py-2 rounded-lg bg-pink-700/50 shadow-inner hidden sm:block">
+                    <!-- O tempo será inserido pelo JavaScript -->
+                </div>
+                
+                <!-- LOGO E TÍTULO -->
+                <a href="index.html" class="flex items-center flex-shrink-0 text-white">
+                    <img src="imagens/Logo.jpeg" alt="Logo Delícias da Jessie" class="h-10 w-10 mr-2 rounded-full"
+                        onerror="this.onerror=null; this.src='https://placehold.co/40x40/ffe4e6/be185d?text=DJ';"
+                    >
+                    <span class="text-3xl font-bold titulo-fonte">Delícias da Jessie</span>
+                </a>
+
+                <!-- Navegação COM LINKS CORRIGIDOS E HOME ATIVO -->
+                <nav class="flex space-x-4">
+                    <a href="index.html" class="link-ativo text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Home</a>
+                    <a href="donuts.html" class="text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Donuts</a>
+                    <a href="cupcakes.html" class="text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Cupcakes</a>
+                    <a href="cardapio.html" class="text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Cardápio</a>
+                    <a href="contato.html" class="text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Contato</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="flex-grow p-4 sm:p-8">
+        
+        <!-- SEÇÃO HERO (Destaque Principal) -->
+        <section class="max-w-6xl mx-auto mb-16 p-6 sm:p-10 md:p-16 rounded-3xl shadow-2xl bg-white/80 backdrop-blur-sm border-4 border-pink-300 transform transition duration-500 hover:scale-[1.01]">
+            <div class="md:flex items-center">
+                
+                <!-- Coluna de Texto -->
+                <div class="md:w-1/2 md:pr-10 text-center md:text-left mb-8 md:mb-0">
+                    <h2 class="text-5xl md:text-6xl font-extrabold titulo-fonte text-pink-700 mb-4 leading-tight">
+                        Doce Sabor, Feito à Mão.
+                    </h2>
+                    <p class="text-xl text-gray-700 mb-6">
+                        Na Delícias da Jessie, cada bolo, brigadeiro e doce é preparado com os ingredientes mais frescos e o carinho que só o feito em casa pode oferecer.
+                    </p>
+                    <!-- Botão de Ação Principal que leva ao Cardápio -->
+                    <a href="cardapio.html" class="inline-block bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105 active:scale-95 text-lg">
+                        Ver Cardápio Completo
+                    </a>
+                </div>
+
+                <!-- Coluna da Imagem (AGORA COM A LOGO PRINCIPAL) -->
+                <div class="md:w-1/2 flex justify-center relative">
+                    <img src="imagens/Logo.jpeg" 
+                        alt="Delícias da Jessie - Logo Principal" 
+                        class="rounded-full w-64 h-64 sm:w-80 sm:h-80 object-cover shadow-2xl border-8 border-white ring-4 ring-pink-300 ml-auto mr-auto md:ml-0 md:mr-0 mt-8 md:mt-0"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x400/ffe4e6/9d174d?text=Logo+Jessie';"
+                    >
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE DESTAQUE (Por que Delícias da Jessie?) -->
+        <section class="max-w-6xl mx-auto text-center py-10">
+            <h3 class="text-4xl font-bold titulo-fonte text-pink-600 mb-10">
+                A Doçura em Cada Detalhe
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Carinho Caseiro -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border-b-4 border-rose-400 hover:shadow-2xl transition duration-300">
+                    <div class="text-rose-500 text-4xl mb-3">💖</div>
+                    <h4 class="text-xl font-semibold mb-2 text-gray-800">Carinho Caseiro</h4>
+                    <p class="text-gray-600">Receitas de família e o toque especial da Jessie em cada preparo.</p>
+                </div>
+
+                <!-- Card 2: Ingredientes Frescos -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border-b-4 border-rose-400 hover:shadow-2xl transition duration-300">
+                    <div class="text-rose-500 text-4xl mb-3">🍓</div>
+                    <h4 class="text-xl font-semibold mb-2 text-gray-800">Ingredientes Frescos</h4>
+                    <p class="text-gray-600">Utilizamos apenas ingredientes de alta qualidade para garantir o melhor sabor.</p>
+                </div>
+                
+                <!-- Card 3: Personalização -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border-b-4 border-rose-400 hover:shadow-2xl transition duration-300">
+                    <div class="text-rose-500 text-4xl mb-3">🎂</div>
+                    <h4 class="text-xl font-semibold mb-2 text-gray-800">Personalização</h4>
+                    <p class="text-gray-600">Fazemos bolos e doces exclusivos para sua festa, do seu jeito.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CARROSSEL / PRODUTOS EM DESTAQUE -->
+        <section class="max-w-7xl mx-auto py-12">
+            <h3 class="text-4xl font-bold titulo-fonte text-pink-700 text-center mb-10">
+                Nossas Delícias Mais Amadas
+            </h3>
+
+            <!-- Novo container relativo para posicionar os botões -->
+            <div class="relative px-8 sm:px-0">
+                
+                <!-- Botão Esquerdo (Anterior) -->
+                <button id="scroll-left" class="absolute left-0 top-1/2 -mt-12 z-10 p-3 bg-white text-pink-600 rounded-full shadow-lg hover:bg-pink-100 transition duration-200 hidden md:block border-2 border-pink-300 transform -translate-x-1/2">
+                    <i class="fas fa-chevron-left text-xl"></i>
+                </button>
+
+                <!-- Carrossel responsivo -->
+                <div id="product-carousel" class="flex space-x-6 overflow-x-auto pb-4 px-2">
+                    
+                    <!-- Produto Card 1: Mini Donuts Temáticos -->
+                    <div class="flex-shrink-0 w-72 bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-pink-400/50 transition duration-500 transform hover:scale-[1.03] border border-pink-100">
+                        <img src="imagens/5.jpeg" alt="Mini Donuts de Controle de Videogame" class="w-full h-40 object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/300x200/a7d9de/1e40af?text=Donuts+Game';"
+                        >
+                        <div class="p-4 text-left">
+                            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Mini Donuts Gamer</h4>
+                            <p class="text-sm text-gray-500 mb-3">Donuts azuis decorados com controles de chocolate!</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-rose-500">R$ 3,00 (un)</span>
+                                <a href="https://wa.me/5561995739512?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20os%20Mini%20Donuts%20Gamer." target="_blank" class="bg-rose-500 text-white text-sm py-2 px-4 rounded-full hover:bg-rose-600 transition duration-300">
+                                    Pedir
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto Card 2: Brownie Recheado -->
+                    <div class="flex-shrink-0 w-72 bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-pink-400/50 transition duration-500 transform hover:scale-[1.03] border border-pink-100">
+                        <img src="imagens/16.jpeg" alt="Brownie com Recheio Cremoso" class="w-full h-40 object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/300x200/4a2c2a/ffe082?text=Brownie+Recheado';"
+                        >
+                        <div class="p-4 text-left">
+                            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Brownie Recheado</h4>
+                            <p class="text-sm text-gray-500 mb-3">Chocolate intenso com recheio cremoso, embalado individualmente.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-rose-500">R$ 6,00 (un)</span>
+                                <a href="https://wa.me/5561995739512?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20o%20Brownie%20Recheado." target="_blank" class="bg-rose-500 text-white text-sm py-2 px-4 rounded-full hover:bg-rose-600 transition duration-300">
+                                    Pedir
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto Card 3: Mini Cupcakes de Flores -->
+                    <div class="flex-shrink-0 w-72 bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-pink-400/50 transition duration-500 transform hover:scale-[1.03] border border-pink-100">
+                        <img src="imagens/20.jpeg" alt="Mini Cupcakes Decorados com Flores Rosa" class="w-full h-40 object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/300x200/fecaca/881337?text=Cupcake+Flores';"
+                        >
+                        <div class="p-4 text-left">
+                            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Mini Cupcakes Flores</h4>
+                            <p class="text-sm text-gray-500 mb-3">Fofos cupcakes com delicadas flores em pasta americana.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-rose-500">R$ 5,00 (un)</span>
+                                <a href="https://wa.me/5561995739512?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20os%20Mini%20Cupcakes%20Flores." target="_blank" class="bg-rose-500 text-white text-sm py-2 px-4 rounded-full hover:bg-rose-600 transition duration-300">
+                                    Pedir
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto Card 4: Biscoito de Goiabada -->
+                    <div class="flex-shrink-0 w-72 bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-pink-400/50 transition duration-500 transform hover:scale-[1.03] border border-pink-100">
+                        <img src="imagens/27.jpeg" alt="Mini Donuts Românticos Te Amo" class="w-full h-40 object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/300x200/ff7bac/881337?text=Donuts+Romance';"
+                        >
+                        <div class="p-4 text-left">
+                            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Biscoito de Goiabada</h4>
+                            <p class="text-sm text-gray-500 mb-3">Aquele biscoitinho artesanal que derrete na boca.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-rose-500">R$ 10,00 (pote)</span>
+                                <a href="https://wa.me/5561995739512?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20o%20Biscoito%20de%20Goiabada." target="_blank" class="bg-rose-500 text-white text-sm py-2 px-4 rounded-full hover:bg-rose-600 transition duration-300">
+                                    Pedir
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto Card 5: Mini Donuts Romance -->
+                    <div class="flex-shrink-0 w-72 bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-pink-400/50 transition duration-500 transform hover:scale-[1.03] border border-pink-100">
+                        <img src="imagens/2.jpeg" alt="Mini Donuts Pink com Borboletas" class="w-full h-40 object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/300x200/f87171/ffffff?text=Borboletas';"
+                        >
+                        <div class="p-4 text-left">
+                            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Mini Donuts Romance</h4>
+                            <p class="text-sm text-gray-500 mb-3">Ideal para datas especiais, com a mensagem "Te Amo".</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-rose-500">R$ 3,00 (un)</span>
+                                <a href="https://wa.me/5561995739512?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20o%20Mini%20Donuts%20Romance." target="_blank" class="bg-rose-500 text-white text-sm py-2 px-4 rounded-full hover:bg-rose-600 transition duration-300">
+                                    Pedir
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Adicionar um pequeno espaço para visualização na rolagem -->
+                    <div class="flex-shrink-0 w-4"></div>
+                </div>
+
+                <!-- Botão Direito (Próximo) -->
+                <button id="scroll-right" class="absolute right-0 top-1/2 -mt-12 z-10 p-3 bg-white text-pink-600 rounded-full shadow-lg hover:bg-pink-100 transition duration-200 hidden md:block border-2 border-pink-300 transform translate-x-1/2">
+                    <i class="fas fa-chevron-right text-xl"></i>
+                </button>
+            </div>
+            
+        </section>
+        
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5561995739512?text=Ol%C3%A1%2C%20gostaria%20de%20montar%20meu%20kit%20de%20festa%20e%20fazer%20um%20or%C3%A7amento." 
+        target="_blank" 
+        class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-xl hover:bg-green-600 transition duration-300 transform hover:scale-110 active:scale-95 z-20"
+        aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-pink-900 mt-auto">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Ícones de Redes Sociais no Rodapé -->
+            <ul class="social-icons-list">
+                <li>
+                    <a href="https://www.instagram.com/deliciasda_jessie" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/5561995739512" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </li>
+            </ul>
+            <p class="text-pink-100 text-sm">
+                &copy; 2025 Delícias da Jessie. Feito com muito amor em tons de rosa.
+                    Geuanes Ribeiro da Silva, 
+                    Luis Antônio Gustavo Mendes da Silva, 
+                    Luiz Gustavo de Campos &copy; Uniplan
+
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE RELÓGIO E CARROSSEL -->
+    <script>
+        // FUNÇÃO DO RELÓGIO
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+
+            const clockElement = document.getElementById('real-time-clock');
+            if (clockElement) {
+                clockElement.textContent = timeString;
+            }
+        }
+        setInterval(updateClock, 1000);
+        
+        // FUNÇÃO DE NAVEGAÇÃO DO CARROSSEL
+        document.addEventListener('DOMContentLoaded', () => {
+            updateClock();
+
+            const carousel = document.getElementById('product-carousel');
+            const scrollLeftBtn = document.getElementById('scroll-left');
+            const scrollRightBtn = document.getElementById('scroll-right');
+
+            const scrollAmount = 300;
+
+            if (carousel && scrollLeftBtn && scrollRightBtn) {
+                scrollRightBtn.addEventListener('click', () => {
+                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+
+                scrollLeftBtn.addEventListener('click', () => {
+                    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

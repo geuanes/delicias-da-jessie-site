@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧁 Cupcakes | Delícias da Jessie</title>
+    <!-- Incluindo Tailwind CSS para estilização moderna e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link do Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <style>
+        /* Configuração de Fonte Global e Cores */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        
+        :root {
+            /* Definindo a paleta de cores rosa/doce */
+            --cor-primaria: #db2777; /* Rosa Escuro (Acento Principal) */
+            --cor-secundaria: #f472b6; /* Rosa Médio */
+            --cor-fundo: #fff1f2; /* Rosa Muito Claro (Rose 50) */
+            --cor-card: #fdf2f8; /* Pink 100 */
+            --cor-texto: #1f2937; /* Cinza Escuro */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        /* Estilo da Fonte do Título para um toque mais sofisticado */
+        .titulo-fonte {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Estilo para o link ativo na navegação */
+        .link-ativo {
+            position: relative;
+        }
+        .link-ativo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 9999px;
+        }
+        
+        /* Efeito de Marca d'Água com o Logo (Full Page) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('imagens/Logo.jpeg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 80vh;
+            opacity: 0.05;
+            z-index: -1;
+            pointer-events: none;
+            background-color: #fce7f3;
+        }
+
+        /* CSS CUSTOMIZADO PARA EFEITO GLOW NOS ÍCONES */
+        .social-icons-list {
+            list-style: none; 
+            display: flex; 
+            justify-content: center; 
+            padding: 0;
+            margin: 20px 0 10px; 
+        }
+
+        .social-icons-list li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px; 
+            height: 44px; 
+            margin: 0 10px;
+            background-color: transparent;
+            color: #fbcfe8; 
+            border: 2px solid #fbcfe8; 
+            border-radius: 50%; 
+            font-size: 1.25rem; 
+            transition: all 0.3s ease;
+        }
+        
+        /* Efeito Hover: Inverte as cores e adiciona sombra/glow */
+        .social-icons-list li a:hover {
+            background-color: #fbcfe8; 
+            color: #831843; 
+            box-shadow: 0 0 10px 2px #f472b6; 
+            transform: scale(1.1); 
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- CABEÇALHO CORRIGIDO E PADRONIZADO -->
+    <header class="bg-pink-600 shadow-2xl sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- RELÓGIO -->
+                <div id="real-time-clock" class="text-white text-lg font-mono px-3 py-2 rounded-lg bg-pink-700/50 shadow-inner hidden sm:block">
+                    <!-- O tempo será inserido pelo JavaScript -->
+                </div>
+                
+                <!-- LOGO E TÍTULO -->
+                <a href="index.html" class="flex items-center flex-shrink-0 text-white">
+                    <img src="imagens/Logo.jpeg" alt="Logo Delícias da Jessie" class="h-10 w-10 mr-2 rounded-full"
+                        onerror="this.onerror=null; this.src='https://placehold.co/40x40/ffe4e6/be185d?text=DJ';"
+                    >
+                    <span class="text-3xl font-bold titulo-fonte">Delícias da Jessie</span>
+                </a>
+
+                <!-- Navegação COM LINKS CORRIGIDOS E CUPCAKES ATIVO -->
+                <nav class="flex space-x-4">
+                    <a href="index.html" class="text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Home</a>
+                    <a href="donuts.html" class="text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Donuts</a>
+                    <a href="cupcakes.html" class="link-ativo text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Cupcakes</a>
+                    <a href="cardapio.html" class="text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Cardápio</a>
+                    <a href="contato.html" class="text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Contato</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="flex-grow p-4 sm:p-8">
+        
+        <!-- SEÇÃO HERO DA PÁGINA DE CUPCAKES -->
+        <section class="max-w-6xl mx-auto mb-16 p-6 sm:p-10 md:p-16 rounded-3xl shadow-2xl bg-white/80 backdrop-blur-sm border-4 border-pink-300">
+            <div class="md:flex items-center gap-10">
+                
+                <!-- Coluna de Imagem -->
+                <div class="md:w-1/2 flex justify-center order-2 md:order-1 mb-8 md:mb-0">
+                    <img 
+                        src="imagens/21.jpeg" 
+                        alt="Cupcake romântico rosa com anel dourado e corações" 
+                        class="w-full max-w-md h-auto object-cover rounded-2xl shadow-2xl ring-4 ring-pink-400 transform transition duration-500 hover:scale-[1.02]"
+                        onerror="this.onerror=null; this.src='https://placehold.co/500x350/ffc0cb/d81b60?text=Cupcake+21+Destaque';"
+                    >
+                </div>
+                
+                <!-- Coluna de Texto -->
+                <div class="md:w-1/2 text-center md:text-left order-1 md:order-2">
+                    <h2 class="text-4xl md:text-5xl font-extrabold titulo-fonte text-pink-700 mb-4 leading-tight">
+                        Cupcakes Artesanais: O Sabor da Festa.
+                    </h2>
+                    <p class="text-xl text-gray-700 mb-6">
+                        Nossos cupcakes são a dose perfeita de doçura e alegria! Feitos com ingredientes frescos, eles são a tela em branco para a sua imaginação. Personalize do seu jeito!
+                    </p>
+                    <!-- BOTÃO PRINCIPAL: Customização -->
+                    <a href="contato.html" class="inline-block bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105 active:scale-95 text-lg">
+                        Monte Seu Cupcake Personalizado
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: PERSONALIZAÇÃO E INSPIRAÇÃO DE SABORES -->
+        <section class="max-w-6xl mx-auto text-center py-10">
+            <h3 class="text-4xl font-bold titulo-fonte text-pink-700 mb-10 border-b-2 border-pink-300 pb-3">
+                Personalize Seu Pedido: Liberte Sua Criatividade!
+            </h3>
+            
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                
+                <!-- COLUNA 1: SABORES E OPÇÕES -->
+                <div class="lg:w-1/2 text-left bg-white p-8 rounded-2xl shadow-xl border border-pink-300">
+                    <h4 class="text-3xl font-bold titulo-fonte text-pink-600 mb-4">Combinações Infinitas de Sabor</h4>
+                    <p class="text-gray-700 mb-6">
+                        Você não está limitado aos sabores tradicionais! Traga o tema da sua festa e nós criamos o cupcake perfeito, combinando o que há de melhor em massas, recheios, coberturas e decorações.
+                    </p>
+
+                    <div class="space-y-6">
+                        <!-- LISTA DE MASSAS -->
+                        <div class="border-l-4 border-rose-500 pl-4">
+                            <p class="font-bold text-pink-700 text-xl mb-2">Massas Sugeridas:</p>
+                            <ul class="list-disc list-inside ml-4 text-gray-700 space-y-1 text-base">
+                                <li>Clássicas: Baunilha, Chocolate 50%, Red Velvet.</li>
+                                <li>Cítricas: Limão Siciliano, Laranja.</li>
+                                <li>Especiais: Cenoura com especiarias, Coco.</li>
+                            </ul>
+                        </div>
+
+                        <!-- LISTA DE RECHEIOS E COBERTURAS -->
+                        <div class="border-l-4 border-rose-500 pl-4">
+                            <p class="font-bold text-pink-700 text-xl mb-2">Recheios e Coberturas:</p>
+                            <ul class="list-disc list-inside ml-4 text-gray-700 space-y-1 text-base">
+                                <li>Cremes: Brigadeiro Gourmet (diversos), Ninho Cremoso, Cream Cheese.</li>
+                                <li>Frutas: Geleias Artesanais (Morango, Frutas Vermelhas), Curd de Limão.</li>
+                                <li>Adicionais: Doce de Leite, Ganache de Chocolate, Merengue Suíço.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- COLUNA 2: SHOWCASE DAS IMAGENS -->
+                <div class="lg:w-1/2 space-y-6">
+                    <h4 class="text-3xl font-bold titulo-fonte text-pink-600 mb-4">Decoração para o Seu Evento</h4>
+
+                    <!-- Imagem 1: Azul Bebê & Chocolate -->
+                    <div class="p-4 bg-white rounded-xl shadow-xl border border-pink-300 transform transition duration-500 hover:scale-[1.02]">
+                        <img src="imagens/24.jpeg" alt="Cupcake azul bebê com pedaço de chocolate, tema infantil ou chá de bebê" 
+                            class="w-full h-48 object-cover rounded-lg mb-3"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x192/ADD8E6/0000FF?text=Cupcake+Azul';"
+                        >
+                        <p class="text-lg font-medium text-pink-700 mt-2">✨ Festas Infantis: Cores vibrantes e temas específicos (chá revelação, heróis, desenhos).</p>
+                    </div>
+                    
+                    <!-- Imagem 2: Temático (Flores) -->
+                    <div class="p-4 bg-white rounded-xl shadow-xl border border-pink-300 transform transition duration-500 hover:scale-[1.02]">
+                        <img src="imagens/20.jpeg" alt="Cupcake rosa de flor com glacê e cobertura, ideal para casamentos ou dia das mães" 
+                            class="w-full h-48 object-cover rounded-lg mb-3"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x192/fecaca/881337?text=Cupcake+Flores';"
+                        >
+                        <p class="text-lg font-medium text-pink-700 mt-2">🌸 Eventos Especiais: Decoração floral, topos de bolo personalizados e cores sofisticadas (casamentos, aniversários).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botão de Contato Final -->
+            <div class="mt-12">
+                <a href="contato.html" class="inline-block bg-pink-700 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:bg-pink-800 transition duration-300 transform hover:scale-105 active:scale-95 text-xl">
+                    Quero Personalizar Meu Pedido! 
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5561995739512?text=Ol%C3%A1%2C%20gostaria%20de%20montar%C2%A0meu%20kit%20de%20cupcakes%20personalizados." 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="fixed right-4 bottom-4 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition duration-300 z-50 transform hover:scale-110 active:scale-95 flex items-center space-x-2">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="hidden sm:inline">WhatsApp</span>
+    </a>
+
+    <!-- RODAPÉ COM ÍCONES E EFEITO GLOW -->
+    <footer class="bg-pink-900 mt-auto">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Ícones de Redes Sociais no Rodapé -->
+            <ul class="social-icons-list">
+                <li>
+                    <a href="https://www.instagram.com/deliciasda_jessie" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/5561995739512" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </li>
+            </ul>
+            <p class="text-pink-100 text-sm">
+                &copy; 2025 Delícias da Jessie. Feito com muito amor em tons de rosa.
+                    Geuanes Ribeiro da Silva, 
+                    Luis Antônio Gustavo Mendes da Silva, 
+                    Luiz Gustavo de Campos &copy; Uniplan
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE RELÓGIO -->
+    <script>
+        // Função para atualizar o relógio
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+
+            const clockElement = document.getElementById('real-time-clock');
+            if (clockElement) {
+                clockElement.textContent = timeString;
+            }
+        }
+
+        // Atualiza o relógio
+        setInterval(updateClock, 1000);
+        
+        // Chama a função para exibir a hora correta ao carregar
+        document.addEventListener('DOMContentLoaded', updateClock);
+    </script>
+</body>
+</html>

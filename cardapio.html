@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📋 Cardápio Completo | Delícias da Jessie</title>
+    <!-- Incluindo Tailwind CSS para estilização moderna e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Incluindo Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <style>
+        /* Configuração de Fonte Global e Cores */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        
+        :root {
+            --cor-primaria: #db2777; /* Rosa Escuro (Acento Principal) */
+            --cor-secundaria: #f472b6; /* Rosa Médio */
+            --cor-fundo: #fff1f2; /* Rosa Muito Claro (Rose 50) */
+            --cor-card: #fdf2f8; /* Pink 100 */
+            --cor-texto: #1f2937; /* Cinza Escuro */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            transition: background-color 0.3s;
+        }
+
+        /* Estilo da Fonte do Título para um toque mais sofisticado */
+        .titulo-fonte {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Estilo para o link ativo na navegação */
+        .link-ativo {
+            position: relative;
+        }
+        .link-ativo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 9999px;
+        }
+        
+        /* CSS customizado para esconder a barra de rolagem do carrossel no desktop */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* EFEITOS EXTRAS PARA CARDS (GLOW) */
+        .card-glow:hover {
+            box-shadow: 0 0 15px rgba(219, 39, 119, 0.6), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Estilo para os ícones de redes sociais no rodapé */
+        .social-icons-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 20px 0 10px;
+        }
+
+        .social-icons-list li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            margin: 0 10px;
+            background-color: transparent;
+            color: #fbcfe8;
+            border: 2px solid #fbcfe8;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons-list li a:hover {
+            background-color: #fbcfe8;
+            color: #831843;
+            box-shadow: 0 0 10px 2px #f472b6;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- CABEÇALHO -->
+    <header class="bg-pink-600 shadow-2xl sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                
+                <!-- RELÓGIO -->
+                <div id="real-time-clock" class="text-white text-lg font-mono px-3 py-2 rounded-lg bg-pink-700/50 shadow-inner hidden sm:block"></div>
+
+                <!-- LOGO E TÍTULO -->
+                <a href="index.html" class="flex items-center flex-shrink-0 text-white ml-auto sm:ml-0">
+                    <img src="imagens/Logo.jpeg" alt="Logo Delícias da Jessie" class="h-10 w-10 mr-2 rounded-full"
+                        onerror="this.onerror=null; this.src='https://placehold.co/40x40/ffe4e6/be185d?text=DJ';"
+                    >
+                    <span class="text-3xl font-bold titulo-fonte">Delícias da Jessie</span>
+                </a>
+
+                <!-- Navegação -->
+                <nav class="flex space-x-4 ml-auto">
+                    <a href="index.html" class="text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Home</a>
+                    <a href="donuts.html" class="text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Donuts</a>
+                    <a href="cupcakes.html" class="text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Cupcakes</a>
+                    <a href="cardapio.html" class="link-ativo text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Cardápio</a>
+                    <a href="contato.html" class="text-white px-3 py-2 rounded-full text-sm font-medium transition duration-300 hover:bg-pink-700">Contato</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="flex-grow p-4 sm:p-8">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- TÍTULO PRINCIPAL -->
+            <h2 class="text-5xl font-extrabold titulo-fonte text-pink-700 text-center mb-4">
+                Nosso Cardápio Artesanal
+            </h2>
+            <p class="text-xl text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+                Explore a variedade de doces feitos à mão com ingredientes frescos e muito carinho. Temos opções para todos os gostos e celebrações! Faça um orçamento com agente oferecemos desconto em pedidos acima de 10 unidades.
+            </p>
+
+            <!-- CATEGORIA: CUPCAKES -->
+            <section class="mb-12">
+                <h3 class="text-3xl font-bold titulo-fonte text-pink-600 border-b-2 border-pink-300 pb-2 mb-6">
+                    Cupcakes
+                </h3>
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                        
+                        <!-- Item 1: Cupcake Clássico -->
+                        <div class="bg-card rounded-xl shadow-lg overflow-hidden card-glow transition duration-300 transform hover:scale-[1.03]">
+                            <img src="imagens/22.jpeg" alt="Cupcake rosa romântico com corações e anel dourado" class="w-full h-48 object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x300/f87171/be185d?text=Cupcake+Classico';"
+                            >
+                            <div class="p-4">
+                                <h4 class="text-xl font-semibold titulo-fonte text-gray-800 mb-1">Cupcake Romântico</h4>
+                                <p class="text-sm text-gray-500">Massa de baunilha, cobertura cremosa rosa e decorações de coração e anel dourado.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: Cupcake Temático -->
+                        <div class="bg-card rounded-xl shadow-lg overflow-hidden card-glow transition duration-300 transform hover:scale-[1.03]">
+                            <img src="imagens/24.jpeg" alt="Cupcake azul bebê com placa de chocolate" class="w-full h-48 object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x300/60a5fa/1f2937?text=Cupcake+Tematico';"
+                            >
+                            <div class="p-4">
+                                <h4 class="text-xl font-semibold titulo-fonte text-gray-800 mb-1">Cupcake Temático Azul</h4>
+                                <p class="text-sm text-gray-500">Massa saborizada, cobertura azul e detalhes de chocolate azul, perfeito para chás de bebê.</p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </section>
+
+            <!-- CATEGORIA: MINI DONUTS -->
+            <section class="mb-12">
+                <h3 class="text-3xl font-bold titulo-fonte text-pink-600 border-b-2 border-pink-300 pb-2 mb-6">
+                    Mini Donuts
+                </h3>
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                        
+                        <!-- Item 1: Donuts Glaceados -->
+                        <div class="bg-card rounded-xl shadow-lg overflow-hidden card-glow transition duration-300 transform hover:scale-[1.03]">
+                            <img src="imagens/donuts_destaque.jpeg" alt="Caixa de mini donuts sortidos coloridos" class="w-full h-48 object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x300/fbcfe8/831843?text=Donuts+Sortidos';"
+                            >
+                            <div class="p-4">
+                                <h4 class="text-xl font-semibold titulo-fonte text-gray-800 mb-1">Caixa de Mini Donuts Sortidos</h4>
+                                <p class="text-sm text-gray-500">Mix de sabores de chocolate, baunilha, nas cores de sua preferência.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: Donuts de Chocolate -->
+                        <div class="bg-card rounded-xl shadow-lg overflow-hidden card-glow transition duration-300 transform hover:scale-[1.03]">
+                            <img src="imagens/14.jpeg" alt="Mini donut individual coberto com chocolate" class="w-full h-48 object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x300/44403c/fff?text=Donut+Chocolate';"
+                            >
+                            <div class="p-4">
+                                <h4 class="text-xl font-semibold titulo-fonte text-gray-800 mb-1">Donut Coberto de Chocolate</h4>
+                                <p class="text-sm text-gray-500">Massa de baunilha, glaceada e coberta com chocolate ao leite e linhas brancas.</p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </section>
+
+            <!-- CATEGORIA: DOCES DE FESTA -->
+            <section class="mb-12">
+                <h3 class="text-3xl font-bold titulo-fonte text-pink-600 border-b-2 border-pink-300 pb-2 mb-6">
+                    Doces de Festa
+                </h3>
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                        
+                        <!-- Item 1: Mini Brownie Recheado -->
+                        <div class="bg-card rounded-xl shadow-lg overflow-hidden card-glow transition duration-300 transform hover:scale-[1.03]">
+                            <img src="imagens/16.jpeg" alt="Mini brownies recheados empilhados" class="w-full h-48 object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x300/7c2d12/fef3c7?text=Brownie';"
+                            >
+                            <div class="p-4">
+                                <h4 class="text-xl font-semibold titulo-fonte text-gray-800 mb-1">Mini Brownie Recheado</h4>
+                                <p class="text-sm text-gray-500">Brownie úmido e intenso, com recheio cremoso e embalagem individual.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: Doce de Festa (Beliscão) -->
+                        <div class="bg-card rounded-xl shadow-lg overflow-hidden card-glow transition duration-300 transform hover:scale-[1.03]">
+                            <img src="imagens/26.jpeg" alt="Potes com beliscões de goiabada" class="w-full h-48 object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x300/f97316/fff?text=Doces+Gourmet';"
+                            >
+                            <div class="p-4">
+                                <h4 class="text-xl font-semibold titulo-fonte text-gray-800 mb-1">Biscoito amanteigado</h4>
+                                <p class="text-sm text-gray-500">Mini biscoitos amanteigados recheados com goiabada. Ideal para a mesa de doces.</p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </section>
+
+            <!-- CATEGORIA: PANETONES E BISCOITOS -->
+            <section class="mb-12">
+                <h3 class="text-3xl font-bold titulo-fonte text-pink-600 border-b-2 border-pink-300 pb-2 mb-6">
+                    🎄 Panetones e Biscoitos 🍪
+                </h3>
+                <p class="text-lg text-gray-600 mb-6">
+                    Nossas delícias sazonais e guloseimas caseiras. Atenção: Os Biscoitos Caseiros estão disponíveis para PRONTA ENTREGA!
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Item 1: Panetone Recheado -->
+                    <div class="bg-card rounded-xl shadow-lg overflow-hidden card-glow transition duration-300 transform hover:scale-[1.03]">
+                        <img src="imagens/panetone.jpeg" alt="Panetone coberto com chocolate e calda" class="w-full h-48 object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x300/ef4444/fee2e2?text=Panetone+Natal';"
+                        >
+                        <div class="p-4">
+                            <h4 class="text-xl font-semibold titulo-fonte text-gray-800 mb-1">Panetone Recheado (Grande)</h4>
+                            <p class="text-sm text-gray-500">Panetone úmido, com recheio cremoso e cobertura de chocolate ao leite e granulado.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Biscoitos Decorados -->
+                    <div class="bg-card rounded-xl shadow-lg overflow-hidden card-glow transition duration-300 transform hover:scale-[1.03]">
+                        <img src="imagens/10.jpeg" alt="Mini donuts decorados tematicamente (Coração e Letras)" class="w-full h-48 object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x300/fca5a5/7f1d1d?text=Biscoito+Decorado';"
+                        >
+                        <div class="p-4">
+                            <h4 class="text-xl font-semibold titulo-fonte text-gray-800 mb-1">Biscoitos para Datas Especiais</h4>
+                            <p class="text-sm text-gray-500">Biscoitos amanteigados, perfeitos para presentear em datas comemorativas.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3: Mini Panetone Trufado -->
+                    <div class="bg-card rounded-xl shadow-lg overflow-hidden card-glow transition duration-300 transform hover:scale-[1.03]">
+                        <img src="imagens/mini_panetone.jpeg" alt="Mini panetones trufados com recheio visível" class="w-full h-48 object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x300/fef08a/854d0e?text=Mini+Panetone';"
+                        >
+                        <div class="p-4">
+                            <h4 class="text-xl font-semibold titulo-fonte text-gray-800 mb-1">Mini Panetone Trufado (Individual)</h4>
+                            <p class="text-sm text-gray-500">Opção individual com recheio trufado cremoso. Ideal para lembrancinhas.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4: Biscoitos Caseiros (PRONTA ENTREGA) -->
+                    <div class="bg-card rounded-xl shadow-lg overflow-hidden card-glow transition duration-300 transform hover:scale-[1.03] relative">
+                        <!-- Badge de Destaque -->
+                        <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">
+                            PRONTA ENTREGA
+                        </div>
+                        <img src="imagens/biscoitospreco.jpeg" alt="Biscoitos caseiros com embalagens e preço visível" class="w-full h-48 object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x300/a78bfa/f3e8ff?text=Biscoitos+PE';"
+                        >
+                        <div class="p-4">
+                            <h4 class="text-xl font-semibold titulo-fonte text-gray-800 mb-1">Biscoitos Caseiros</h4>
+                            <p class="text-sm text-gray-500">Amanteigados e Sequilhos disponíveis imediatamente. Peça já!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <a href="https://api.whatsapp.com/send?phone=5561995739512&text=Ol%C3%A1%2C%20gostaria%20de%20montar%20um%20kit%20de%20festa." 
+       target="_blank" 
+       class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-xl hover:bg-green-600 transition duration-300 transform hover:scale-110 active:scale-95 z-20"
+       aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-pink-900 mt-auto">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Ícones de Redes Sociais no Rodapé -->
+            <ul class="social-icons-list">
+                <li>
+                    <a href="https://www.instagram.com/deliciasda_jessie?igsh=enJ5Y2YyMWF6OTgz" target="_blank" aria-label="Instagram">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://api.whatsapp.com/send?phone=5561995739512" target="_blank" aria-label="WhatsApp">
+                      <i class="fab fa-whatsapp"></i>
+                    </a>
+                </li>
+            </ul>
+            <p class="text-pink-100 text-sm">
+                &copy; 2025 Delícias da Jessie. Feito com muito amor em tons de rosa.
+                    Geuanes Ribeiro da Silva, 
+                    Luis Antônio Gustavo Mendes da Silva, 
+                    Luiz Gustavo de Campos &copy; Uniplan
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT PARA RELÓGIO -->
+    <script>
+        function updateClock() {
+            const clockElement = document.getElementById('real-time-clock');
+            if (clockElement) {
+                const agora = new Date();
+                const opcoes = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
+                clockElement.textContent = agora.toLocaleTimeString('pt-BR', opcoes);
+            }
+        }
+        
+        // Atualiza a cada 1 segundo
+        setInterval(updateClock, 1000);
+        // Chama uma vez na carga para evitar o atraso inicial
+        document.addEventListener('DOMContentLoaded', updateClock);
+    </script>
+</body>
+</html>

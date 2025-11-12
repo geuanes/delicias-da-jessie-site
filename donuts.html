@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inspiração Donuts | Delícias da Jessie</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:wght@400;700&display=swap');
+
+    :root {
+      --cor-primaria: #db2777;
+      --cor-secundaria: #f472b6;
+      --cor-fundo: #fff1f2;
+      --cor-card: #fdf2f8;
+      --cor-texto: #1f2937;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .titulo-fonte {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Link ativo */
+    .link-ativo {
+      position: relative;
+    }
+    .link-ativo::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      border-radius: 9999px;
+    }
+
+    /* Ícones do rodapé */
+    .social-icons-list {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 20px 0 10px;
+    }
+
+    .social-icons-list li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin: 0 10px;
+      color: #fbcfe8;
+      border: 2px solid #fbcfe8;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons-list li a:hover {
+      background-color: #fbcfe8;
+      color: #831843;
+      box-shadow: 0 0 10px 2px #f472b6;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="bg-pink-600 shadow-2xl sticky top-0 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+
+        <!-- Relógio -->
+        <div id="real-time-clock" class="text-white text-lg font-mono px-3 py-2 rounded-lg bg-pink-700/50 shadow-inner hidden sm:block"></div>
+
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center text-white">
+          <img src="imagens/Logo.jpeg" alt="Logo Delícias da Jessie" class="h-10 w-10 mr-2 rounded-full"
+            onerror="this.onerror=null; this.src='https://placehold.co/40x40/ffe4e6/be185d?text=DJ';">
+          <span class="text-3xl font-bold titulo-fonte">Delícias da Jessie</span>
+        </a>
+
+        <!-- Navegação -->
+        <nav class="flex space-x-4">
+          <a href="index.html" class="text-white px-3 py-2 rounded-full text-sm font-medium hover:bg-pink-700 transition">Home</a>
+          <a href="donuts.html" class="link-ativo text-white px-3 py-2 rounded-full text-sm font-medium hover:bg-pink-700 transition">Donuts</a>
+          <a href="cupcakes.html" class="text-white px-3 py-2 rounded-full text-sm font-medium hover:bg-pink-700 transition">Cupcakes</a>
+          <a href="cardapio.html" class="text-white px-3 py-2 rounded-full text-sm font-medium hover:bg-pink-700 transition">Cardápio</a>
+          <a href="contato.html" class="text-white px-3 py-2 rounded-full text-sm font-medium hover:bg-pink-700 transition">Contato</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="flex-grow p-4 sm:p-8">
+    <section class="max-w-7xl mx-auto py-10 text-center">
+      <h1 class="text-5xl font-extrabold titulo-fonte text-pink-700 mb-4">
+        Veja alguns de nossos Donuts para se inspirar!
+      </h1>
+      <p class="text-xl text-gray-600 mb-6 max-w-4xl mx-auto">
+        Na Delícias da Jessie, cada mini donut é uma tela em branco para a sua festa ou presente.
+        Fazemos todos os temas — dos mais fofos aos mais sofisticados. Feitos com massa macia e coberturas brilhantes.
+      </p>
+
+      <div class="text-center mb-12">
+        <p class="text-2xl font-semibold text-pink-600 mb-4">
+          Escolha um tema e entre em contato com a gente!
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=5561995739512&text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20pedido%20de%20Donuts%20Personalizados!"
+          target="_blank"
+          class="inline-flex items-center bg-green-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition transform hover:scale-105 active:scale-95 text-lg">
+          <i class="fab fa-whatsapp text-2xl mr-2"></i> Fazer um Pedido Personalizado
+        </a>
+      </div>
+
+      <!-- GRADE DE PRODUTOS -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+        <!-- Produto 1 -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-pink-100 transform hover:shadow-2xl hover:scale-[1.02] transition">
+          <img src="imagens/4.jpeg" alt="Mini Donuts Românticos Te Amo" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Romance Box</h4>
+            <p class="text-sm text-gray-500">Mini donuts em tons de vermelho e rosa, decorados com corações e letras "TE AMO".</p>
+          </div>
+        </div>
+
+        <!-- Produto 2 -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-pink-100 transform hover:shadow-2xl hover:scale-[1.02] transition">
+          <img src="imagens/5.jpeg" alt="Mini Donuts Gamer" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Donuts Gamer</h4>
+            <p class="text-sm text-gray-500">Donuts azuis com controles de chocolate. Ideais para festas de jogos.</p>
+          </div>
+        </div>
+
+        <!-- Produto 3 -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-pink-100 transform hover:shadow-2xl hover:scale-[1.02] transition">
+          <img src="imagens/3.jpeg" alt="Mini Donuts Frutas" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Donuts Frutados</h4>
+            <p class="text-sm text-gray-500">Mini donuts decorados como fatias de frutas: melancia, kiwi e laranja.</p>
+          </div>
+        </div>
+
+        <!-- Produto 4 -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-pink-100 transform hover:shadow-2xl hover:scale-[1.02] transition">
+          <img src="https://cdn.britannica.com/38/230838-050-D0173E79/doughnuts-donuts.jpg" alt="Donuts Clássicos" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Clássicos Mistos</h4>
+            <p class="text-sm text-gray-500">Donuts tradicionais com glacê e granulados coloridos.</p>
+          </div>
+        </div>
+
+        <!-- Produto 5 -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-pink-100 transform hover:shadow-2xl hover:scale-[1.02] transition">
+          <img src="imagens/6.jpeg" alt="Aniversário Personalizado" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Pink Borboletas</h4>
+            <p class="text-sm text-gray-500">Delicados donuts rosa com detalhes de borboletas e glitter comestível. Um encanto visual!</p>
+          </div>
+        </div>
+
+        <!-- Produto 6 -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-pink-100 transform hover:shadow-2xl hover:scale-[1.02] transition">
+          <img src="imagens/7.jpeg" alt="Donuts Profissionais" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Donuts Escolares</h4>
+            <p class="text-sm text-gray-500">Perfeitos para festas de formatura, volta às aulas e eventos infantis com temas educativos.</p>
+          </div>
+        </div>
+
+        <!-- Produto 7 -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-pink-100 transform hover:shadow-2xl hover:scale-[1.02] transition">
+          <img src="imagens/8.jpeg" alt="Pink Borboletas" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Aniversário Personalizado</h4>
+            <p class="text-sm text-gray-500">Donuts criativos e coloridos com temas de festa, personagens e números personalizados.</p>
+          </div>
+        </div>
+
+        <!-- Produto 8 -->
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-pink-100 transform hover:shadow-2xl hover:scale-[1.02] transition">
+          <img src="imagens/9.jpeg" alt="Donuts Escolares" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h4 class="text-2xl font-semibold titulo-fonte text-pink-600 mb-1">Donuts Profissionais e Religiosos</h4>
+            <p class="text-sm text-gray-500">Donuts temáticos perfeitos para presentear colegas, clientes ou eventos corporativos.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Reforço -->
+      <div class="text-center mt-12 pt-8 border-t border-pink-200">
+        <p class="text-2xl font-semibold text-pink-600 mb-4">
+          Pronto para transformar sua ideia em donut?
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=5561995739512&text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20pedido%20de%20Donuts%20Personalizados!"
+          target="_blank"
+          class="inline-flex items-center bg-green-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition transform hover:scale-105 active:scale-95 text-lg">
+          <i class="fab fa-whatsapp text-2xl mr-2"></i> Entre em Contato por WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Botão flutuante -->
+  <a href="https://wa.me/5561995739512?text=Ol%C3%A1%2C%20gostaria%20de%20montar%20meu%20kit%20de%20festa%20e%20fazer%20um%20or%C3%A7amento."
+    target="_blank"
+    class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-xl hover:bg-green-600 transition transform hover:scale-110 active:scale-95 z-20">
+    <i class="fab fa-whatsapp text-2xl"></i>
+  </a>
+
+  <!-- Rodapé -->
+  <footer class="bg-pink-900 mt-auto">
+    <div class="max-w-7xl mx-auto py-6 px-4 text-center">
+      <ul class="social-icons-list">
+        <li><a href="https://www.instagram.com/deliciasda_jessie" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://wa.me/5561995739512" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+      </ul>
+      <p class="text-pink-100 text-sm">&copy; 2025 Delícias da Jessie. Feito com muito amor em tons de rosa.
+                    Geuanes Ribeiro da Silva, 
+                    Luis Antônio Gustavo Mendes da Silva, 
+                    Luiz Gustavo de Campos &copy; Uniplan
+      </p>
+    </div>
+  </footer>
+
+  <!-- Relógio -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('real-time-clock').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    document.addEventListener('DOMContentLoaded', updateClock);
+  </script>
+</body>
+</html>
